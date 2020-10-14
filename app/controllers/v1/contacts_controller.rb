@@ -3,13 +3,11 @@ class V1::ContactsController < ApplicationController
    @contacts = Contact.all
       # c = @contacts.map { |contact| {id: contact.id, first_name: contact.first_name}}
       # render json: {contacts: c}, status: :ok  
-      render json: @contact, status: :created
+      render json: @contacts, status: :created
     end
   
     def create
       @contact = Contact.new(contact_params)
-
-      
       @contact.save
       render json: @contact, status: :created
     end
